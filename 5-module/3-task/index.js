@@ -12,27 +12,27 @@ function initCarousel() {
   }
   
   function translateSlide() {
-    carouselInner.style.transform = 'translateX(' + (-slideWidth) * step + 'px)';
+    carouselInner.style.transform = `translateX(${-slideWidth * step}px)`;
 
     if (slides[step] == carouselInner.lastElementChild) {
       carouselArrowRight.style.display = 'none';
     } else {
-      carouselArrowRight.style.display = 'flex';
+      carouselArrowRight.style.display = '';
     }
 
     if (slides[step] == carouselInner.firstElementChild) {
       carouselArrowLeft.style.display = 'none';
     } else {
-      carouselArrowLeft.style.display = 'flex';
+      carouselArrowLeft.style.display = '';
     }
   }
 
-  carouselArrowRight.addEventListener('click', function rightStep () {
+  carouselArrowRight.addEventListener('click', function () {
     step++;
     translateSlide();
   });
   
-  carouselArrowLeft.addEventListener('click', function lestStep () {
+  carouselArrowLeft.addEventListener('click', function () {
     step--;
     translateSlide();
 	});
