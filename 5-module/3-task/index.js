@@ -6,7 +6,8 @@ function initCarousel() {
 
   let step = 0;
   let slideWidth = carouselInner.firstElementChild.offsetWidth;
-
+  console.log(carouselInner.firstElementChild);
+  
   if (slides[step] == carouselInner.firstElementChild) {
     carouselArrowLeft.style.display = 'none';
   }
