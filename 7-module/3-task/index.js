@@ -3,11 +3,8 @@ export default class StepSlider {
     this.steps = steps;
     this.value = value;
     this.elem = this.render();
-    //this.valueElem;
-    console.log(this.valueElem);
     this.elem.addEventListener('click', (event) => this.stepActive(event));
-    this.elem.addEventListener('click', () => this.sliderProgres());
-    console.log(this.valueElem);
+    this.elem.addEventListener('click', () => this.sliderProgress());
   }
 
   render(){
@@ -45,10 +42,10 @@ export default class StepSlider {
     });
   }
 
-  sliderProgres() {
+  sliderProgress() {
     let sliderValue = this.elem.querySelector('.slider__value');
     let sliderThumb = this.elem.querySelector('.slider__thumb');
-    let sliderProgres = this.elem.querySelector('.slider__progress');
+    let sliderProgress = this.elem.querySelector('.slider__progress');
     let left = event.clientX - this.elem.getBoundingClientRect().left;
     let leftRelative = left / this.elem.offsetWidth;
     let segments = this.steps - 1;
@@ -57,7 +54,7 @@ export default class StepSlider {
     let valuePercents = value / segments * 100;
     sliderValue.innerHTML = value;
     sliderThumb.style.left = `${valuePercents}%`;
-    sliderProgres.style.width = `${valuePercents}%`;
+    sliderProgress.style.width = `${valuePercents}%`;
 
     if (this.value !== value) {
     this.elem.dispatchEvent(new CustomEvent('slider-change', { 

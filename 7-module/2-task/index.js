@@ -45,8 +45,7 @@ export default class Modal {
 
   setBody(node) {
     let modalBody = this.elem.querySelector('.modal__body');
-    let modalBodyText = node.textContent;
-	  modalBody.innerHTML = modalBodyText;
+	  modalBody.innerHTML = node.outerHTML;
   }
 
   close() {
